@@ -1,0 +1,10 @@
+# Правило для обнаружения SQL инъекции
+alert tcp $EXTERNAL_NET any -> $HTTP_SERVERS 80 (msg:"SQL Injection Attempt Detected"; flow:to_server,established; content:"SELECT"; nocase; content:"FROM"; distance:0; within:40; content:"WHERE"; distance:0; within:40; pcre:"/(\%27)|(\')|(\-\-)|(\%23)|(#)/i"; classtype:web-application-attack; sid:1000001; rev:1;)
+
+# Правило для обнаружения попыток brute force SSH входа
+alert tcp $EXTERNAL_NET any -> $HOME_NET 22 (msg:"Possible SSH Brute Force Detected"; flags:S; threshold:type both, track by_src, count 5, seconds 120; classtype:attempted-admin; sid:1000002; rev:1;)
+
+# Правило для обнаружения эксплуатации уязвимости CVE-2024-1234
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"CVE-2024-1234 Exploit Attempt"; content:"|00 01 86 A5|"; flow:to_server,established; reference:cve,2024-1234; classtype:attempted-admin; sid:1000003; rev:1;)
+
+# Для работы нужно заменить $EXTERNAL_NET, $HTTP_SERVERS и $HOME_NET на соответствующие IP-адреса и сети инфраструктуры

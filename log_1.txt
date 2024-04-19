@@ -1,0 +1,23 @@
+[2024-04-19 14:30:01] [IDS] ALERT: Suspicious activity detected!
+    - Attacker IP: 192.168.1.10
+    - Target: 10.0.0.5 (Web server)
+    - Attack type: SQL injection attempt
+    - Rule ID: 1001
+    - Description: Possible SQL injection attack detected in web server logs.
+    - Severity: High
+
+[2024-04-19 14:45:12] [IDS] ALERT: Intrusion attempt!
+    - Attacker IP: 192.168.1.20
+    - Target: 10.0.0.10 (Mail server)
+    - Attack type: Brute force SSH login
+    - Rule ID: 1002
+    - Description: Multiple failed SSH login attempts from the same IP address.
+    - Severity: Medium
+
+[2024-04-19 15:02:30] [IDS] ALERT: Potential exploit detected!
+    - Attacker IP: 192.168.1.30
+    - Target: 10.0.0.15 (Database server)
+    - Attack type: CVE-2024-1234 vulnerability
+    - Rule ID: 1003
+    - Description: Exploit attempt targeting known vulnerability in database server.
+    - Severity: Critical
